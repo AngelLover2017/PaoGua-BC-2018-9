@@ -1,0 +1,111 @@
+/* component/popup.wxss */
+.radio{
+  text-align: left;
+  padding-left: 20%;
+  margin-bottom: 30rpx;
+}
+.popup{
+  position: fixed;
+  width : 100%;
+  height: 100%;
+  top : 0rpx;
+  left: 0rpx;
+}
+.wx-popup {
+
+  position: absolute;
+  z-index: 3;
+
+  left: 0;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+}
+
+
+.popup-container {
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+ 
+
+  width: 80%;
+
+  max-width: 600rpx;
+
+  border: 2rpx solid #ccc;
+
+  border-radius: 10rpx;
+
+  box-sizing: bordre-box;
+
+  transform: translate(-50%, -50%); 
+
+  overflow: hidden;
+
+  background: white;
+
+}
+
+ 
+
+.wx-popup-title {
+
+  width: 100%;
+
+  padding: 20rpx;
+
+  text-align: center;
+
+  font-size: 40rpx;
+
+}
+
+ 
+
+.wx-popup-con {
+
+  margin: 60rpx 10rpx;
+
+  text-align: center;
+
+}
+
+ 
+
+.wx-popup-btn {
+
+  display: flex;
+  height: 115rpx;
+  justify-content: space-around;
+  border-top: 0.1rpx solid #E8E8E9;
+  margin-top: 20rpx;
+  font-size: 45rpx;
+  text-align: center
+}
+
+ 
+
+.btn-no{ 
+ padding-top:25rpx;
+ width : 50%;
+ border :0rpx;
+ background: white;
+ border-right: 0.1rpx solid #E8E8E9
+}
+.btn-ok{
+  padding-top:25rpx;
+  width : 50%;
+  color:#4DCA32;
+  background: white;
+}
+button::after{ border: none; }

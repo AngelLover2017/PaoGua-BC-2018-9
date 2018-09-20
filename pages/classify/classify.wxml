@@ -1,0 +1,18 @@
+<!--pages/classfy/classify.wxml-->
+<view class='container'>
+  <view class='left_part'>
+       <block wx:for="{{navItem}}">
+      <view class="nav_left_item {{curNav == item.id ? 'active':''}}" bindtap='switchRight' data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
+    </block> 
+  </view>
+  <view class='right_part'>
+     <view wx:if="{{navItem[curIndex].is_child}}">
+      <block wx:for="{{navItem[curIndex].child_nav}}">
+        <view class="nav_part" bindtap="backCate" data-index="{{index}}"> 
+          <text class='cname'>{{item.cname}}</text>
+          <text class='content'>{{item.content}}</text>
+        </view>
+      </block>
+    </view>   
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<view class="popup" hidden='{{flag}}'>
+  <view class="wx-popup" >
+    <view class='popup-container'>
+
+      <view class="wx-popup-title">{{title}}</view>
+
+      <view class="wx-popup-con">
+        <radio-group class="radio-group" bindchange="radioChange">
+        <view wx:for="{{content}}" class="radio">
+          <label>
+            <radio value="{{item.name}}" checked="{{item.isChecked}}"/>{{item.value}}
+          </label>
+        </view>
+        </radio-group>
+      </view>
+      <view class="wx-popup-btn">
+        <view class="btn-no">
+        <text  bindtap='_error'>{{btn_no}}</text>
+        </view>
+        <view class="btn-ok">
+        <text bindtap='_success'>{{btn_ok}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

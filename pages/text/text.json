@@ -1,0 +1,6 @@
+{
+ "usingComponents": {
+  "popup": "../../component/popup/popup",
+  "imgupload" : "../../component/imgupload/imgupload"
+}
+}

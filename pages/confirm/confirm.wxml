@@ -1,0 +1,24 @@
+<!--pages/confirm/confirm.wxml-->
+
+<form id="bind" bindsubmit="formSubmit">
+ 
+  <view class='conp' style='margin-top:32rpx'>
+    <text class="iconaoxiang icon-aoxiang"></text>
+    <input id="idNumber" type="text" name="npuId" placeholder="请输入学号" class="part" maxlength="10" bindinput='inputId'></input>
+ </view>
+<view class='conp'>
+  <text class="iconkey icon-key"></text>
+  <input id="password" type="password" name="npuPassword" placeholder="请输入翱翔密码" class="part" bindinput='inputPw'></input>
+ </view>
+ 
+  <view class="note">
+    <text>*为保障其他用户隐私，用户在绑定翱翔账号后才可查看他人的信息和发布先转功能</text>。
+  </view>
+  <view class="tip">
+    <text>数据来源：西北工业大学研工部·梦之翼网络文化工作室</text>
+  </view>
+  <view class="conbtn">
+    <button id="submit" form-type="submit" class="btn" style="background:{{btncolor}};">绑定</button>
+  </view>
+</form>
+

@@ -1,0 +1,19 @@
+<view  class="body-image" style="background:{{background}};">
+ <block wx:for="{{image}}" >
+ <view  class="body-image-content" style="height:{{hint_height}};width:{{hint_width}};">
+     <view class="body-image-contenticon" >
+      <icon id="{{index}}" type='clear' bindtap="removeImage"></icon>
+     </view> 
+      
+    <image src="{{item}}" style="height:{{hint_height}};width:{{hint_width}};" mode="{{mode}}">
+    </image>   
+ </view>
+</block>
+  <view class="body-image-content" style="background:{{hint_background}};height:{{hint_height}};width:{{hint_width}};display:{{isBeyond}};">
+    <view  class="body-image-contentfont">
+    <text class="{{hint_icon}}" style="font-size:{{icon_size}};color:{{icon_color}};" bindtap="chooseImage" ></text>
+    </view>
+    <view class="body-image-hint"><text class="image-text">{{hint}}</text></view>
+  </view>
+</view>
+

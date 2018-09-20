@@ -1,0 +1,47 @@
+<view class="top"></view>
+<block wx:for="{{block}}">
+  <view class="block">
+    <view class="block-header">
+      <view class="avatar">
+        <view class="avatar-img">
+          <image class="img-avatar" src="{{item.avatarUrl}}" mode="aspectFill"></image>
+        </view>
+        <view class="avatar-text">
+          <view class="nickName">
+            <text>{{item.nickName}}</text>
+          </view>
+          <view class="subTime">
+            <text>{{item.subTime}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="price">
+        <text>￥{{item.price}}</text>
+      </view>
+      <view class="icon" bindtap="removeCollect" data-index="{{index}}" >
+        <text class="iconfont icon-star3" ></text>
+      </view>
+    </view>
+    <view class="block-content"  bindtap='toDetail' data-index="{{index}}">
+      <view class="title">
+        <text>{{item.title}}</text>
+      </view>
+      <view class="image">
+        <block wx:for="{{item.imageUrl}}" wx:for-item="itemPath">
+          <image class="img-image" src="{{itemPath}}" mode="aspectFill"></image>
+        </block>
+      </view>
+    </view>
+    <view class="block-footer">
+      <text>{{item.school}}</text>
+    </view>
+  </view>
+</block>
+<popup 
+ id = "popup"
+ title = "为何取消收藏（单选）"
+ content ="{{reason}}"
+ bind:error = 'cancel'
+ bind:success = 'success'
+>
+</popup>

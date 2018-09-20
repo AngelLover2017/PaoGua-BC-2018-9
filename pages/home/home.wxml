@@ -1,0 +1,105 @@
+<view class="total">
+  <view class="fixed1">
+    <view class="header"  bindtouchstart="handlStart" bindtouchmove="handlMove1" bindtouchend="handlEnd">
+      <view class="topBar">
+        <text>抛  瓜</text>
+      </view>
+      <view class="" style="{{pullDown.imgTop}}" >
+        <image class="img-top" src="{{homeImg}}" animation="{{animationImg}}"></image>
+      </view>
+      <view class="category" style="{{pullDown.category}}" animation="{{animationCate}}">
+      <block wx:for="{{iconPath}}">
+        <view class="icon">
+          <view class="iconLogo">
+            <image class="icon-logo" src="{{item.path}}" bindtap="toFeed" data-id="{{index}}"></image>
+          </view>
+          <view class="icon-text">
+            <text bindtap="toFeed" data-id="{{index}}">{{item.title}}</text>
+          </view>
+        </view>
+      </block>
+      </view>
+      <view class="freshTitle" style="{{pullDown.freshTitle}}" animation="{{animationFreshT}}">
+          <text style='color:#F16777'>|</text>
+          <text> 最新鲜</text>
+      </view> 
+    </view>
+  </view>
+<!-- bindtouchstart="handlStart" bindtouchmove="handlMove2" bindtouchend="handlEnd" -->
+  <scroll-view class="fresh" scroll-y style="{{pullDown.fresh}}" animation="{{animationFresh}}"    bindscrolltoupper="handlUpper" bindscrolltolower="handlLower" bindscroll="handlScroll">
+
+    <view class="top"></view>
+    <block wx:for="{{freshItems}}">
+    <view class="block" bindtap="toDetail" data-index="{{index}}">
+      <view class="block-header">
+        <view class="avatar">
+          <view class="avatar-img">
+            <image class="img-avatar" src="{{item.avatarUrl}}" mode="aspectFill"></image>
+          </view>
+          <view class="avatar-text">
+            <view class="nickName">
+              <text>{{item.nickName}}</text>
+            </view>
+            <view class="subTime">
+              <text>{{item.subTime}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="cateTip">
+          <text>{{item.category}}</text>
+        </view>
+        <view class="price">
+          <text>￥{{item.price}}</text>
+        </view>
+      </view>
+      <view class="block-content" >
+        <view class="title">
+          <text>{{item.title}}</text>
+        </view>
+        <view class="image">
+        <block wx:for="{{item.imageUrl}}" wx:for-item="itemPath" wx:for-index="id">
+          <image class="img-image" src="{{itemPath}}" mode="aspectFill"></image>
+        </block>
+        </view>
+      </view>
+      <view class="block-footer">
+        <text>{{item.school}}</text>
+      </view>
+    </view>
+    </block>
+    <view class="footerFill">
+    </view>
+  </scroll-view>
+</view>
+
+
+
+
+<view class="tabBar">
+<!-- 货架 -->
+  <view class="colmun  {{curTab == 0 ? 'activeTab':'' }}">
+    <view class="barLogo" bindtap="switchShelf">
+      <text class="iconfont icon-shangdian" style=""></text>
+    </view>
+    <view class="barText">
+      <text>货架</text>
+    </view>
+  </view>
+  <!-- 发布 -->
+  <view class="colmun">
+  </view>
+  <!-- 我的 -->
+  <view class="colmun   {{curTab == 1 ? 'activeTab':'' }}">
+    <view class="barLogo" bindtap="switchSelf">
+      <text class="iconfont icon-weibiaoti2fuzhi12"></text>
+    </view>
+    <view class="barText">
+      <text>我的</text>
+    </view>
+  </view>
+</view>
+<view class="bottom">
+  <view class="release" bindtap="switchRelease">
+    <text class="iconfont icon-jiahao2"></text>
+  </view>
+</view>

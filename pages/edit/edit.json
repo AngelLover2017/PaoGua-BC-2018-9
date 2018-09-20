@@ -1,0 +1,9 @@
+{
+  "usingComponents" : {
+    "imgupload" : "../../component/imgupload/imgupload"
+  },
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "发布"
+  
+}

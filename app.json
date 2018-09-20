@@ -1,0 +1,32 @@
+{
+  "pages":[
+   
+    "pages/index/index",
+    "pages/home/home",
+    "pages/edit/edit",
+    "pages/feed/feed",
+    "pages/detail/detail",
+    "pages/mycollect/mycollect",
+    "pages/myrelease/myrelease",
+    "pages/self/self",
+      "pages/text/text",
+  
+
+    "pages/personnel/personnel",
+    "pages/contact/contact",
+    "pages/confirm/confirm",
+    "pages/release/release",
+    "pages/classify/classify",
+    "pages/suggestion/suggestion",
+  
+    "pages/logs/logs"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": false
+  }
+ 
+
+}

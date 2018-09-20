@@ -1,0 +1,10 @@
+<button size='default' type='default' bindtap="startToast">弹窗</button>
+<view><text>{{value}}</text></view>
+<popup 
+id = "popup"
+title = "温馨提示"
+content = "{{content}}"
+bind:error = 'cancel'
+bind:success = 'success'
+>
+</popup>

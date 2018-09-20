@@ -1,0 +1,94 @@
+<!--pages/self/self.wxml-->
+<view class="top">
+  <view class="top-title">
+    <text>抛瓜</text>
+  </view>
+  <view class="top-avatar">
+    <view class="avatar">
+      <view class="avatar-img">
+        <image src="{{avatarPath}}" mode="aspectFill"></image>
+      </view>
+      <view class="avatar-title">
+        <text>{{avatarTitle}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="top-tip">
+    <text>你已经抛出{{subTimes}}个瓜哦</text>
+  </view>
+</view>
+<view class="content">
+<!-- 我的发布 -->
+  <view class="row" bindtap="toMyRelease">
+    <view class="row-add">
+      <text class="iconfont icon-icon-test"></text>
+    </view>
+    <view class="row-input">
+      <text>我的发布</text>
+    </view>
+  </view>
+  <!-- 我的收藏 -->
+  <view class="row" bindtap="toMyCollect">
+    <view class="row-add">
+      <text class="iconfont icon-star-full"></text>
+    </view>
+    <view class="row-input" >
+      <text>我的收藏</text>
+    </view>
+  </view>
+  <!-- 个人信息 -->
+  <view class="row" bindtap="toPersonnel">
+    <view class="row-add">
+      <text class="iconfont .icon-gerenzhanghu"></text>
+    </view>
+    <view class="row-input">
+      <text>个人信息</text>
+    </view>
+  </view>
+  <!-- 意见反馈 -->
+  <view class="row" bindtap="toSuggestion">
+    <view class="row-add">
+      <text class="iconfont icon-ai-message"></text>
+    </view>
+    <view class="row-input">
+      <text>意见反馈</text>
+    </view>
+  </view>
+  <!-- 联系我们 -->
+  <view class="row" bindtap="toContact">
+    <view class="row-add">
+      <text class="iconfont icon-dianhua"></text>
+    </view>
+    <view class="row-input">
+      <text>联系我们</text>
+    </view>
+  </view>
+</view>
+<view class="tabBar">
+<!-- 货架 -->
+  <view class="colmun   {{curTab == 0 ? 'activeTab':'' }}">
+    <view class="barLogo" bindtap="switchShelf">
+      <text class="iconfont icon-shangdian" style=""></text>
+    </view>
+    <view class="barText">
+      <text>货架</text>
+    </view>
+  </view>
+  <!-- 发布 -->
+  <view class="colmun">
+  </view>
+  <!-- 我的 -->
+  <view class="colmun   {{curTab == 1 ? 'activeTab':'' }}">
+    <view class="barLogo" bindtap="switchSelf">
+      <text class="iconfont icon-weibiaoti2fuzhi12"></text>
+    </view>
+    <view class="barText">
+      <text>我的</text>
+    </view>
+  </view>
+</view>
+<view class="bottom">
+  <view class="release" bindtap="switchRelease">
+    <text class="iconfont icon-jiahao2"></text>
+  </view>
+</view>

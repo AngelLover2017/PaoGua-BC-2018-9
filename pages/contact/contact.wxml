@@ -1,0 +1,8 @@
+<view class="row">
+  <view class="add">
+    <text class="icon-qq iconqq"></text>
+   </view>
+  <view class="content">
+    <text>QQ群：XXXXXXXXX</text>
+  </view>
+</view>

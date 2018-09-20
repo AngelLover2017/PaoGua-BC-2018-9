@@ -1,0 +1,74 @@
+<view class="blockScroll">
+  <view class="top"></view>
+  <view class="block">
+    <view class="block-header">
+      <view class="avatar">
+        <view class="avatar-img">
+          <image class="img-avatar" src="{{detail.avatarUrl}}" mode="aspectFill"></image>
+        </view>
+        <view class="avatar-text">
+          <view class="nickName">
+            <text>{{detail.nickName}}</text>
+          </view>
+          <view class="subTime">
+            <text>{{detail.subTime}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="school">
+        <text>{{detail.school}}</text>
+      </view>
+    </view>
+    <view class="block-content">
+      <view class="title">
+        <text>{{detail.title}}</text>
+      </view>
+      <view class="description">
+        <text>{{detail.description}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="images" >
+      <block wx:for="{{detail.imageUrl}}">
+        <view class="images-view" >
+          <image class="img-image" src="{{item}}"  mode="widthFix" bindload="getHeight"></image>
+        </view>
+      </block>
+  </view>
+  <view class="contact">
+    <view class="row">
+      <view class="add">
+        <text>手机号</text>
+      </view>
+      <view class="input">
+        <text>{{detail.phoneNum}}</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="add">
+        <text>微信号</text>
+      </view>
+      <view class="input">
+        <text>{{detail.wxId}}</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="add">
+        <text>QQ号</text>
+      </view>
+      <view class="input">
+        <text>{{detail.qqNum}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="footerFix">
+  <view class="footer">
+    <view class="price">
+        <text>￥{{detail.price}}</text>
+      </view>
+      <view class="icon {{icon == 'icon-star3' ? 'collect':''}}" bindtap="collect">
+        <text class="iconfont {{icon}}"></text>
+      </view>
+  </view>
+</view>

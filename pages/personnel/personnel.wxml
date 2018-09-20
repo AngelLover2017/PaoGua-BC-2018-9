@@ -1,0 +1,50 @@
+<view class="row row-top">
+  <view class="add">
+    <text class="icon icon-zhanghu"></text>
+  </view>
+  <view class="content">
+    <text bindtap="toconfirm" style="display:{{bind == 0 ? '':'none'}}">点击绑定翱翔账号，激活所有功能</text>
+    <text style="display:{{bind == 1 ? '':'none'}}">已绑定翱翔账户：{{npuId}}</text>
+    <view class="unbind" style="display:{{bind == 1? '':'none'}}" bindtap="unbind"><text>解绑</text></view>
+  </view>
+</view>
+
+<view class="des">
+  <text>*为保障其他用户隐私，用户在绑定翱翔账号后才可发布闲置和获取卖家联系方式</text>
+</view>
+<form id="" bindsubmit="formsubmit">
+<view class="body">
+<view class="row row-body">
+  <view class="add">
+    <text class="icon icon-phone"></text>
+  </view>
+  <view class="content">
+    <input type="number" maxlength="11" name="phoneNum" placeholder="输入手机号，闲置发布更方便" value="{{phoneNum}}" bindinput="inputPhone"></input>
+  </view>
+</view>
+<view class="row row-body">
+  <view class="add">
+    <text class="icon icon-wx"></text>
+  </view>
+  <view class="content">
+    <input type="text" maxlength="26" name="wxId" placeholder="输入微信号，闲置发布更方便" value="{{wxId}}" bindinput="inputWx"></input>
+  </view>
+</view>
+<view class="row row-body">
+  <view class="add">
+    <text class="icon icon-qq"></text>
+  </view>
+  <view class="content">
+    <input type="text" maxlength="16" name="qqNum" placeholder="输入QQ号，闲置发布更方便" value="{{qqNum}}" bindinput="inputQQ"></input>
+  </view>
+</view>
+</view>
+
+<view class="des">
+  <text>*为保障用户隐私，个人信息只有其他用户使用翱翔账号认证登录之后才可查看</text>
+</view>
+
+ <view class="bottomBtn">
+    <button id="submit" form-type="submit" class="btn  {{(phoneNum != '' || wxId != '' || qqNum != '')? 'active': '' }}" >保存</button>
+  </view>
+</form>

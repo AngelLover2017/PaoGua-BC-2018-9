@@ -1,0 +1,37 @@
+<!-- <view class="top">
+  <view class="top-icon"><text class="iconfont icon-fanhui" ></text></view>
+  <view class="top-title"><text>意见反馈</text></view>
+</view> -->
+<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_767855_oqz1np2ld6j.css" > </link>
+<form bindsubmit='formSubmit'>
+<view class="body" style="{{bodyStyle}}"> 
+<view class="section body-radio">
+<radio-group  class="radio-group" name="sugbug">
+  <label class="radio" bindtap="selectRadio1">
+    <radio value="suggest"  checked="" /><text style='{{radio1style}}'> 产品意见</text>
+  </label>
+  <label class="radio" bindtap="selectRadio2">
+    <radio value="bug"  checked=""/><text style="{{radio2style}}">bug反馈</text>
+  </label>
+</radio-group>
+</view>
+<view class="section body-textarea" >
+  <textarea  maxlength='500'  name="suggestion" placeholder="请填写10个字以上的意见或反馈，我们将不断为你提供更好的用户体验" placeholder-class="place-textarea" bindinput="changeText">
+  <view class="textarea-limit"><text style="{{beyondLimit}}">{{current}}/{{maxLength}}</text></view>
+  </textarea>
+</view>
+
+<view class="section body-input">
+  <input type="number" name="phoneNum"  maxlength='11' placeholder='手机号码（选填，方便我们答复）' placeholder-class="place-input"></input>
+</view>
+<view class="imgupload">
+<imgupload
+    id='imgupload'
+>
+</imgupload>
+</view>
+</view>
+<view class="section">
+  <button id="submit" form-type="submit" class="btn">提交</button>
+</view>
+</form>

@@ -1,0 +1,83 @@
+<!-- select -->
+<view class="filter">
+  <block wx:for="{{select}}">
+  <view class="colmun {{curFilter == index && onOff ? 'active-select':''}}" bindtap="selectFilter" data-id="{{index}}">
+    <view class="text" >
+      <text catchtap="selectFilter" data-id="{{index}}">{{item.filter}}</text>
+    </view>
+    <view class="select">
+      <text class="iconfont icon-xiala" catchtap="selectFilter" data-id="{{index}}"></text>
+    </view>
+  </view>
+  </block>
+</view>
+<!-- select panel -->
+<view class="mask {{onOff ? '':'select-none'}}">
+</view>
+<scroll-view scroll-y="true" class="scroll {{curFilter == order[2] && onOff ? '':'select-none'}}" >
+    <view class='container'>
+      <view class='left_part'>
+          <block wx:for="{{navItem}}">
+          <view class="nav_left_item {{curNav == index ? 'active':''}}" bindtap='switchRight' data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
+        </block> 
+      </view>
+      <view class='right_part'>
+          <block wx:for="{{navItem[curNav].child_nav}}">
+            <view class="nav_part {{curNav2 == index ? 'active2' : ''}}" bindtap="backCate" data-index="{{index}}"> 
+              <text class='cname'catchtap="backCate" data-index="{{index}}">{{item.cname}}</text>
+              <text class='content'catchtap="backCate" data-index="{{index}}">{{item.content}}</text>
+            </view>
+          </block> 
+      </view>
+    </view>
+</scroll-view>
+
+  <view class="model {{(curFilter == 0 || curFilter == 1) && onOff ? '':'select-none' }}"  >
+    <block wx:for="{{filter[curFilter].items}}">
+    <view class="row {{cur == index ? 'active':''}}" bindtap="select" data-id="{{index}}">
+      <text catchtap="select" data-id="{{index}}">{{item}}</text>
+    </view>
+    </block>
+  </view>
+<!-- feed -->
+<scroll-view scroll-y="true" class="scroll-cotent" bindscrolltolower="scrollLower">
+  <view class="top"></view>
+  <block wx:for="{{block}}">
+    <view class="block" bindtap="toDetail" data-index="{{index}}">
+      <view class="block-header">
+        <view class="avatar">
+          <view class="avatar-img">
+            <image class="img-avatar" src="{{item.avatarUrl}}" mode="aspectFill"></image>
+          </view>
+          <view class="avatar-text">
+            <view class="nickName">
+              <text>{{item.nickName}}</text>
+            </view>
+            <view class="subTime">
+              <text>{{item.subTime}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="price">
+          <text>￥{{item.price}}</text>
+        </view>
+        <view class="icon">
+          <text class="iconfont icon-star-full"></text>
+        </view>
+      </view>
+      <view class="block-content">
+        <view class="title">
+          <text>{{item.title}}</text>
+        </view>
+        <view class="image">
+          <block wx:for="{{item.imageUrl}}" wx:for-item="itemPath">
+            <image class="img-image" src="{{itemPath}}" mode="aspectFill"></image>
+          </block>
+        </view>
+      </view>
+      <view class="block-footer">
+        <text>{{item.school}}</text>
+      </view>
+    </view>
+  </block>
+</scroll-view>

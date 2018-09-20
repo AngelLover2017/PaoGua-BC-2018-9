@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+      "popup": "../../component/popup/popup"
+    },
+  
+      "navigationBarBackgroundColor": "#ffffff",
+      "navigationBarTextStyle": "black",
+      "navigationBarTitleText": "我发布的"
+}

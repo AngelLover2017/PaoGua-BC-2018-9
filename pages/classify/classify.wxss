@@ -1,0 +1,67 @@
+/* pages/classfy/classfy.wxss */
+page
+{
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.left_part {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  /*主盒子设置背景色为灰色*/
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.right_part {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 70%;
+  background-color: #fafafa;
+}
+
+.nav_left_item {
+  height:110rpx;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+}
+
+.active {
+  color: red;
+  background-color: #fafafa;
+}
+.nav_part
+{
+  height: 90rpx;
+  display: block;
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+  padding-top: 5rpx;
+}
+.cname
+{
+  font-size: 30rpx;
+  width: 100%;
+  display: block;
+}
+.content
+{
+  font-size: 20rpx;
+  color: #949494;
+  width: 100%;
+  display: block;
+}

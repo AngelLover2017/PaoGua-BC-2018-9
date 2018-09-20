@@ -1,0 +1,70 @@
+<!--release wxml / 发布编辑页-->
+<form id="" bindsubmit="formsubmit">
+ <view class="top">
+  <view class="title">
+    <input type="text" maxlength="15" name="title" placeholder="取一个标题吧，记得多带一些关键字" class="input-title" placeholder-class="placeholder-title" bindinput="inputTitle" value="{{title}}">
+    </input>
+    <view class="input-limit"><text style="color:{{limit[0].beyondStyle}};">{{limit[0].current}}/{{limit[0].maxlength}}       </text></view>
+  </view>
+  <view class="description">
+    <textarea maxlength="200" name="description" placeholder="详细介绍一下你的宝贝，比如品牌、型号、规格、成色、购买渠道等" class="textarea-description" placeholder-class="placeholder-description" bindinput="inputDescription" value="{{description}}">
+    </textarea>
+    <view class="textarea-limit"><text style="color:{{limit[1].beyondStyle}};">{{limit[1].current}}/{{limit[1].maxlength}}       </text></view>
+  </view>
+  <view class="image">
+    <imgupload
+      id = "imgupload"
+      imageUrl = "{{imageUrl}}"
+    >
+    </imgupload>
+    
+  </view>
+ </view>
+  <view class="content">
+    <view class="row">
+      <view class="row-add">价格</view>
+      <view class="row-input">
+        <input type="digit" name="price" placeholder="打算卖多少" bindinput='inputPrice' value="{{price}}"></input>
+      </view>
+    </view>
+    <view class="row" bindtap="selectCate">
+      <view class="row-add">分类</view>
+      <view class="row-input">
+        <text>{{category.name}}</text>
+      </view>
+      <view class="row-back">
+        <text class="iconfont icon-gengduo"></text>
+      </view>
+    </view>
+    <view class="row" bindtap="selectSch">
+      <view class="row-add">可面交校区</view>
+      <view class="row-input">
+        <text>{{school.name}}</text>
+      </view>
+      <view class="row-back">
+        <text class="iconfont icon-gengduo"></text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="row-add">手机号</view>
+      <view class="row-input">
+        <input type="number" maxlength="11" name="phoneNum" placeholder="选填" value="{{phoneNum}}"></input>
+      </view>
+    </view>
+    <view class="row">
+      <view class="row-add">QQ号</view>
+      <view class="row-input">
+        <input type="number" maxlength="12" name="qqNum" placeholder="选填" value="{{qqNum}}"></input>
+      </view>
+    </view>
+    <view class="row">
+      <view class="row-add">微信号</view>
+      <view class="row-input">
+        <input type="text" maxlength="20" name="wxid" placeholder="选填" value="{{wxId}}"></input>
+      </view>
+    </view>
+  </view>
+  <view class="conbtn">
+    <button id="submit" form-type="submit" class="btn" style="background:{{btncolor}};">保存</button>
+  </view>
+</form>

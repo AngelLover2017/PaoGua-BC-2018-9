@@ -1,0 +1,83 @@
+page{
+  background : #F3F3F7;
+}
+.top{
+  height: 5rpx;
+}
+.block{
+  height : 338rpx;
+  background: #F3F3F7;
+  margin-bottom: 10rpx;
+}
+.block-content{
+  display: flex;
+  height: 225rpx;
+  padding-top : 25rpx;
+  background: white;
+  padding-left: 30rpx;
+}
+.block-img{
+  height: 225rpx;
+  width: 26.667%;
+}
+.block-text{
+  position: relative;
+  width : 67%;
+  margin-left: 20rpx;
+  height: 225rpx; 
+}
+.title{
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.category{
+  font-size : 30rpx;
+}
+.price{
+  position: absolute;
+  left: 0rpx;
+  bottom: 30rpx;
+  font-size: 40rpx;
+  color: #F36778;
+}
+.tip{
+  position: absolute;
+  font-size : 20rpx;
+  bottom: 25rpx;
+  right: 20rpx;
+  color : #9DACB1
+}
+.block-footer{
+  height: 85rpx;
+  margin-top: 3rpx; 
+  background: white;
+  padding-left: 30rpx;
+}
+.delete{
+  display: inline-block;
+  margin-top : 12.5rpx;
+}
+.fresh{
+  display: inline-block;
+   margin-top : 12.5rpx;
+   margin-left: 350rpx;
+}
+.edit{
+  display: inline-block;
+   margin-top : 12.5rpx;
+   margin-left: 20rpx;
+   margin-right: 20rpx;
+}
+image{
+  height:200rpx;
+  width: 200rpx;
+  background: white;
+  border: 2rpx solid #CCCCCC;
+
+}
+button{
+  height : 60rpx;
+  width: 108rpx;
+  padding:0rpx;
+  font-size: 24rpx;
+}

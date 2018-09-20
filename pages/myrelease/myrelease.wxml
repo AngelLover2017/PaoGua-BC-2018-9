@@ -1,0 +1,43 @@
+<view class="top"></view>
+<block wx:for="{{block}}">
+  <view class="block" >
+    <view class="block-content" bindtap='toDetail' data-index="{{index}}">
+      <view class="block-img">
+        <image src="{{item.imageUrl}}" mode="aspectFill"></image>
+      </view>
+      <view class="block-text">
+        <view class="title">
+          <text>{{item.title}}</text>
+        </view>
+        <view class="category">
+          <text>{{item.category}}</text>
+        </view>
+        <view class="price">
+          <text>￥{{item.price}}</text>
+        </view>
+        <view class="tip">
+          <text>{{item.tip}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="block-footer">
+      <view class="delete">
+        <button  plain="true" bindtap="deleteRelease" data-id="{{index}}">删除</button>
+      </view>
+      <view class="fresh">
+        <button plain="true" bindtap="freshRelease" data-id="{{index}}">擦亮</button>
+      </view>
+      <view class="edit">
+        <button plain="true" bindtap="editRelease" data-id="{{index}}">编辑</button>
+      </view>
+    </view>
+  </view>
+</block>
+<popup
+  id="popup"
+  title = "删除原因（单选）"
+  content ="{{reason}}"
+  bind:error = 'cancel'
+  bind:success = 'success'
+>
+</popup>
