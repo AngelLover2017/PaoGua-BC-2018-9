@@ -19,9 +19,7 @@ Page({
       name: "线下交易地点",
       code : ""
     },
-    // imageUrl: [
-    //     "http://172.99.255.204/paogua/public/images/bp.png"
-    // ],
+    imageUrl: [],
     phoneNum : "",
     qqNum : "",
     wxId : "",
@@ -134,6 +132,7 @@ Page({
                 Mstring: res.data,
               },
               success: function (res) {
+                console.log(res)
                 if(res.data == '400'){
                   
                 }else if(res.data == '401'){
@@ -151,6 +150,7 @@ Page({
                       cancelText : '否',
                       confirmText : '是',
                       success : function(res){
+                        
                         if(res.confirm){
                           that.setData({
                             phoneNum : data.phoneNum,
@@ -224,85 +224,213 @@ Page({
                   key: 'cookie',
                   success: function (res) {
                     var Mstring = res.data
-
-                    wx.request({
-                      url: 'https://pg.npupaogua.cn/paogua/Home/Release/release',
-                      method: "POST",
-                      header: {
-                        "content-type": "application/x-www-form-urlencoded",
-                        "Cookie": app.globalData.cookie
-                      },
-                      data: {
-                        Mstring: res.data,
-                        title: e.detail.value.title,
-                        description: e.detail.value.description,
-                        price: e.detail.value.price,
-                        category: that.data.category.code,
-                        school: that.data.school.code,
-                        phoneNum: e.detail.value.phoneNum,
-                        wxId: e.detail.value.wxid,
-                        qqNum: e.detail.value.qqNum
-                      },
-                      success: function (res) {
-                        if(res.data == '400'){
-
-                        }else if(res.data == '502'){
-
-                        }else if(res.data == '401'){
-
-                        }else{
-                          var goods_id = res.data
-                          var image = that.imgupload.data.image
-                          var rs = 0
-                          wx.showLoading({
-                            title: '图片上传中',
-                            success:function(){
-                              for (var i = 0; i < image.length; i++) {
-                                wx.uploadFile({
-                                  url: 'https://pg.npupaogua.cn/paogua/home/release/uploadImages',
-                                  filePath: image[i],
-                                  name: 'image',
-                                  header: {
-                                    "content-type": "multipart/form-data",
-                                    "Cookie": app.globalData.cookie
-                                    
-                                  },
-                                  formData: {
-                                    Mstring: Mstring,
-                                    goods_id: goods_id
-                                  },
-                                  success: function (result) {
-                                    rs++;                        
-                                    if(rs == image.length){
-                                      wx.hideLoading()
-                                      wx.redirectTo({
-                                        url: '../home/home',
-                                      })
-                                    }
-                                  },
-                                  fail: function () {
+                    var goods_id = ""
+                    var image = that.imgupload.data.image
+                    var rs = 0
+                    wx.showLoading({
+                      title: '图片上传中',
+                      success: function () {
+                        //生成uuid
+                        wx.request({
+                          url: 'https://pg.npupaogua.cn/paogua/home/release/createUUid',
+                          method: "POST",
+                          header: {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "Cookie": app.globalData.cookie
+                          },
+                          data: {
+                            Mstring: Mstring,
+                          },
+                          success : function(res){
+                           
+                            goods_id = res.data.goods_id
+                            var imgupload = new Array()
+                            for (var i = 0; i < image.length; i++) {
+                              wx.uploadFile({
+                                url: 'https://pg.npupaogua.cn/paogua/home/release/uploadImages',
+                                filePath: image[i],
+                                name: 'image',
+                                header: {
+                                  "content-type": "multipart/form-data",
+                                  "Cookie": app.globalData.cookie
+                                },
+                                formData: {
+                                  Mstring: Mstring,
+                                  goods_id : goods_id,
+                                  order: i
+                                },
+                                success: function (res) {
+                                  console.log(res)
+                                  var jsonStr = res.data
+                                  //去掉字符串中的空格
+                                  jsonStr = jsonStr.replace(" ","");
+                                  //typeof https://www.cnblogs.com/liu-fei-fei/p/7715870.html
+                                  if(typeof jsonStr!='object'){
+                                    //去掉饭斜杠
+                                    jsonStr = jsonStr.replace(/\ufeff/g,"")
+                                    var jsonObj = JSON.parse(jsonStr)
+                                    res.data = jsonObj
+                                  }
+                                 
+                                  console.log(res)
+                                  if(res.data.code == 1) {
+                                    rs++
+                                    imgupload[rs-1] = res.data.filePath
+                                  } else if (res.data.code == -1) {
                                     wx.showToast({
-                                      title: '网络开小差了，请重试',
-                                      icon: 'none'
+                                      title: '图片上传失败',
+                                      icon : 'none'
                                     })
                                   }
+                                  if (rs == image.length) {
+                                    goods_id = goods_id
+                                    console.log(goods_id)
+                                    wx.request({
+                                      url: 'https://pg.npupaogua.cn/paogua/Home/Release/release',
+                                      method: "POST",
+                                      header: {
+                                        "content-type": "application/x-www-form-urlencoded",
+                                        "Cookie": app.globalData.cookie
+                                      },
+                                      data: {
+                                        Mstring: Mstring,
+                                        goods_id: goods_id,
+                                        title: e.detail.value.title,
+                                        description: e.detail.value.description,
+                                        price: e.detail.value.price,
+                                        category: that.data.category.code,
+                                        school: that.data.school.code,
+                                        phoneNum: e.detail.value.phoneNum,
+                                        wxId: e.detail.value.wxid,
+                                        qqNum: e.detail.value.qqNum,
+                                        imageUrl: JSON.stringify(imgupload)
+                                      },
+                                      success: function (res) {
+                                        console.log(res)
+                                        if (res.data == '400') {
+                                          wx.hideLoading()
+                                          wx.showToast({
+                                            title: '发布失败',
+                                            icon: 'none'
+                                          })
+                                        } else if (res.data.code == '502') {
 
-                                })
-                              }
+                                        } else if (res.data.code == '401') {
+
+                                        } else if(res.data == '200'){
+                                          wx.hideLoading()
+                                          wx.redirectTo({
+                                            url: '../home/home',
+                                          })
+                                        }
+                                      },
+                                      fail: function () {
+                                        wx.showToast({
+                                          title: '网络开小差了，请重试',
+                                          icon: 'none'
+                                        })
+                                      }
+                                    })
+                                  }
+                                },
+                                fail: function () {
+                                  wx.showToast({
+                                    title: '网络开小差了，请重试',
+                                    icon: 'none'
+                                  })
+                                }
+
+                              })
                             }
-                          })
-                        }
-                      },
-                      fail:function(){
-                        wx.showToast({
-                          title: '网络开小差了，请重试',
-                          icon : 'none'
+                          }
                         })
                       }
                     })
+
                   },
                 })
-              }
+             }
+
+
+////////////////////////////////////////////////////////////////////////////////
+          //           wx.request({
+          //             url: 'https://pg.npupaogua.cn/paogua/Home/Release/release',
+          //             method: "POST",
+          //             header: {
+          //               "content-type": "application/x-www-form-urlencoded",
+          //               "Cookie": app.globalData.cookie
+          //             },
+          //             data: {
+          //               Mstring: res.data,
+          //               title: e.detail.value.title,
+          //               description: e.detail.value.description,
+          //               price: e.detail.value.price,
+          //               category: that.data.category.code,
+          //               school: that.data.school.code,
+          //               phoneNum: e.detail.value.phoneNum,
+          //               wxId: e.detail.value.wxid,
+          //               qqNum: e.detail.value.qqNum
+          //             },
+          //             success: function (res) {
+          //               if(res.data == '400'){
+
+          //               }else if(res.data == '502'){
+
+          //               }else if(res.data == '401'){
+
+          //               }else{
+          //                 var goods_id = res.data
+          //                 var image = that.imgupload.data.image
+          //                 var rs = 0
+          //                 wx.showLoading({
+          //                   title: '图片上传中',
+          //                   success:function(){
+          //                     for (var i = 0; i < image.length; i++) {
+          //                       wx.uploadFile({
+          //                         url: 'https://pg.npupaogua.cn/paogua/home/release/uploadImages',
+          //                         filePath: image[i],
+          //                         name: 'image',
+          //                         header: {
+          //                           "content-type": "multipart/form-data",
+          //                           "Cookie": app.globalData.cookie
+                                    
+          //                         },
+          //                         formData: {
+          //                           Mstring: Mstring,
+          //                           goods_id: goods_id
+          //                         },
+          //                         success: function (result) {
+          //                           rs++;                        
+          //                           if(rs == image.length){
+          //                             wx.hideLoading()
+          //                             wx.redirectTo({
+          //                               url: '../home/home',
+          //                             })
+          //                           }
+          //                         },
+          //                         fail: function () {
+          //                           wx.showToast({
+          //                             title: '网络开小差了，请重试',
+          //                             icon: 'none'
+          //                           })
+          //                         }
+
+          //                       })
+          //                     }
+          //                   }
+          //                 })
+          //               }
+          //             },
+          //             fail:function(){
+          //               wx.showToast({
+          //                 title: '网络开小差了，请重试',
+          //                 icon : 'none'
+          //               })
+          //             }
+          //           })
+          //         },
+          //       })
+             // }
             }
           })
       }
