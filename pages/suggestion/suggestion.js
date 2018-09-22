@@ -59,7 +59,7 @@ changeText:function(e){
     var phoneNum = e.detail.value.phoneNum
     var sugbug = e.detail.value.sugbug
     var canSubmit = true
-    console.log(util.checkNumber(phoneNum))
+   
     if(sugbug == ''){
       wx.showToast({
         title: '请选择反馈类型',
@@ -110,23 +110,64 @@ changeText:function(e){
 
               } else {
                 var image = that.imgupload.data.image
-                for (var i = 0; i < image.length; i++) {
-                  wx.uploadFile({
-                    url: 'https://pg.npupaogua.cn/paogua/home/Self/uploadSugImg',
-                    filePath: image[i],
-                    name: 'image',
-                    header: {
-                      "content-type": "multipart/form-data",
-                      "Cookie": app.globalData.cookie
-                    },
-                    formData: {
-                      Mstring: Mstring,
-                      sugbug: sugbug
-                    },
-                    success: function (res) {
-                      console.log(res.data)
+                if(image.length == 0){
+                  wx.showToast({
+                    title: '谢谢你宝贵的意见和反馈',
+                    success: function(){
+                      wx.navigateBack({
+                        delta:1
+                      })
                     }
                   })
+                }else{
+                  wx.showLoading({
+                    title: '图片上传中',
+                    success:function(){
+                      var rs = 0
+                      for (var i = 0; i < image.length; i++) {
+                        wx.uploadFile({
+                          url: 'https://pg.npupaogua.cn/paogua/home/Self/uploadSugImg',
+                          filePath: image[i],
+                          name: 'image',
+                          header: {
+                            "content-type": "multipart/form-data",
+                            "Cookie": app.globalData.cookie
+                          },
+                          formData: {
+                            Mstring: Mstring,
+                            sugbug: sugbug
+                          },
+                          success: function (res) {
+                            var jsonStr = res.data
+                            //去掉字符串中的空格
+                            jsonStr = jsonStr.replace(" ", "");
+                            //typeof https://www.cnblogs.com/liu-fei-fei/p/7715870.html
+                            if (typeof jsonStr != 'object') {
+                              //去掉饭斜杠
+                              jsonStr = jsonStr.replace(/\ufeff/g, "")
+                              var jsonObj = JSON.parse(jsonStr)
+                              res.data = jsonObj
+                            }
+                            if(res.data == "success"){
+                              rs++
+                            }
+                            if(rs == image.length){
+                              wx.hideLoading()
+                              wx.showToast({
+                                title: '谢谢你宝贵的意见和反馈',
+                                success: function () {
+                                  wx.navigateBack({
+                                    delta: 1
+                                  })
+                                }
+                              })
+                            }
+                          }
+                        })
+                      }
+                    }
+                  })
+
                 }
 
               }
@@ -137,33 +178,8 @@ changeText:function(e){
 
 
     }
-    // wx.request({
-    //   url: "http://172.99.255.204/paogua/server/self/suggest/suggest.php",
-    //   data : {
-
-    //   }
-    // })
-    // this.uploadImage("http://172.99.255.204/paogua/server/self/suggest/uploadImage.php","file")
-    // wx.request({
-    //   url: 'http://172.99.255.204/test/confirm.php',
-    //   success : function(res){
-    //     console.log(res.data)
-    //   }
-    // })
-    // var tempFile=this.data.image
-    // wx.uploadFile({
-    //   url: 'http://172.99.255.204/paogua/server/self/suggest/uploadImage.php',
-    //   filePath: tempFile[0].imageAddress,
-    //   header : {"Content-Type" : "multipart/form-data",
-    //     "content-type": "application/x-www-form-urlencoded"},
-    //   name: 'file',
-    //   success : function(res){
-    //     console.log(res.data)
-    //   },
-    //   fail: function(){
-    //     console.log("fail")
-    //   }
-    // })
+ 
+ 
   },
   /**
    * 生命周期函数--监听页面加载
