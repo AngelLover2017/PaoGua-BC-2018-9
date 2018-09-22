@@ -114,6 +114,8 @@ Page({
                                             app.globalData.isNPU = '502'
                                           } else if (res.data == '401') {
                                             app.globalData.isNPU = '401'
+                                          } else{
+                                            app.globalData.isNPU = '200'
                                           }
                                           //
                                           var code = app.globalData.login

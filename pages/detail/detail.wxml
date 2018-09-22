@@ -43,6 +43,7 @@
       <view class="input">
         <text>{{detail.phoneNum}}</text>
       </view>
+      <view bindtap="copyPhone" class="copy {{detail.phoneNum=='无' || detail.phoneNum=='绑定翱翔账号后方可查看' ? 'display':''}}"><text>复制</text></view>
     </view>
     <view class="row">
       <view class="add">
@@ -51,6 +52,7 @@
       <view class="input">
         <text>{{detail.wxId}}</text>
       </view>
+      <view bindtap="copyWx" class="copy {{detail.wxId=='无' || detail.wxId=='绑定翱翔账号后方可查看' ? 'display':''}}"><text>复制</text></view>
     </view>
     <view class="row">
       <view class="add">
@@ -59,6 +61,7 @@
       <view class="input">
         <text>{{detail.qqNum}}</text>
       </view>
+       <view bindtap="copyQQ" class="copy {{detail.qqNum=='无' || detail.qqNum=='绑定翱翔账号后方可查看' ? 'display':''}}"><text>复制</text></view>
     </view>
   </view>
 </view>

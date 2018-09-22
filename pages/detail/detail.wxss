@@ -112,6 +112,7 @@ page{
   background : #FFFFFF;
   margin-bottom: 3rpx;
   height: 100rpx;
+  position: relative;
 }
 .add{
   margin-left : 5%;
@@ -126,6 +127,24 @@ page{
   margin-top : 30rpx;
   font-size: 30rpx;
   font-family: Arial Normal;
+}
+.display{
+  display: none
+}
+.copy{
+  position: absolute;
+  right: 80rpx;
+  color: white;
+  background : #F47F59;
+  text-align: center;
+  font-size: 30rpx;
+  margin-top : 30rpx;
+  height: 44rpx;
+  width : 90rpx;
+  border-radius: 10%;
+  float: right;
+  margin-left: 40rpx;
+
 }
 /* footer */
 .footerFix{

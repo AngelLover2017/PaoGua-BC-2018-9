@@ -25,6 +25,7 @@ Page({
     },
     icon : "icon-star1",
     ifCollect : 0,
+    
   },
 
   //collect
@@ -67,6 +68,40 @@ Page({
       })
    
   },
+  //复制到剪切板
+  copyPhone:function(){
+    wx.setClipboardData({
+      data: this.data.detail.phoneNum,
+      success:function(){
+        wx.showToast({
+          title: '已经复制到剪切板',
+          icon:'none'
+        })
+      }
+    })
+  },
+  copyWx:function(){
+    wx.setClipboardData({
+      data: this.data.detail.wxId,
+      success: function () {
+        wx.showToast({
+          title: '已经复制到剪切板',
+          icon: 'none'
+        })
+      }
+    })
+  },
+  copyQQ:function(){
+    wx.setClipboardData({
+      data: this.data.detail.qqNum,
+      success: function () {
+        wx.showToast({
+          title: '已经复制到剪切板',
+          icon: 'none'
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -93,6 +128,22 @@ Page({
               that.data.detail = res.data
               that.data.detail.goods_id = options.goods_id
               that.data.detail.school = util.parseSch(that.data.detail.school)
+              //绑定翱翔才可以看到联系方式
+              var isNpu = app.globalData.isNPU
+              console.log(isNpu)
+              if(isNpu != '200'){
+                that.data.detail.phoneNum = "绑定翱翔账号后方可查看"
+                that.data.detail.wxId = "绑定翱翔账号后方可查看"
+                that.data.detail.qqNum = "绑定翱翔账号后方可查看"
+                
+              }else{
+                that.data.detail.phoneNum = res.data.phoneNum == '' ? '无':res.data.phoneNum
+                that.data.detail.wxId = res.data.wxId == '' ? '无' : res.data.wxId
+                that.data.detail.qqNum = res.data.qqNum == '' ? '无' : res.data.qqNum
+                
+              }
+              
+             
               that.data.ifCollect = res.data.ifCollect
               that.setData({
                 detail : that.data.detail,
@@ -118,7 +169,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
