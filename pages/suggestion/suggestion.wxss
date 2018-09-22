@@ -65,6 +65,7 @@ page{
 
 }
 /*底部btn样式  */
+
 .btn {
   z-index: 3;
   vertical-align: middle;

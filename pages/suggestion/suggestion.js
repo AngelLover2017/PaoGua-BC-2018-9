@@ -14,23 +14,29 @@ Page({
     image : [
     ] ,
     bodyStyle : "",
+    canSubmit : 0,
   },
   // 选择单选框
 selectRadio1:function(){
   this.setData({
     radio1style : "color:red;",
-    radio2style : "color:black"
+    radio2style : "color:black",
+    canSubmit : 1
   })
 },
 selectRadio2:function(){
   this.setData({
     radio1style : "color:black;",
-    radio2style : "color:red;"
+    radio2style : "color:red;",
+    canSubmit: 1
   })
 },
 // textarea字数计算
 changeText:function(e){
   var len = parseInt((e.detail.value).length);
+  this.setData({
+    canSubmit : len>=1 ? 1:0 
+  })
   if(len < 500){
     this.setData({
       current : len,
@@ -57,6 +63,13 @@ changeText:function(e){
     if(sugbug == ''){
       wx.showToast({
         title: '请选择反馈类型',
+        icon : 'none'
+      })
+      canSubmit = false
+    }
+    if(suggestion == ""){
+      wx.showToast({
+        title: '请填写您的意见或反馈',
         icon : 'none'
       })
       canSubmit = false

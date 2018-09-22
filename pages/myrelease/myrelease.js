@@ -7,20 +7,7 @@ Page({
    */
   data: {
     block : [
-      {
-        imgPath: "http://172.99.255.204/paogua/public/images/tower.jpg",
-        title: "我是标题，支持两行显示",
-        category: "生活用品-运动用品",
-        price: "￥99999",
-        tip: "擦亮一下，可以被更多人看到"
-      },
-      {
-        imgPath: "http://172.99.255.204/paogua/public/images/tower.jpg",  
-        title: "我是标题，支持两行显示",
-        category: "生活用品-运动用品",
-        price: "￥99999",
-        tip: "擦亮一下，可以被更多人看到"
-      }
+
     ],
     currentBlock : -1,
    reason : [

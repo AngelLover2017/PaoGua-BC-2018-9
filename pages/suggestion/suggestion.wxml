@@ -32,6 +32,6 @@
 </view>
 </view>
 <view class="section">
-  <button id="submit" form-type="submit" class="btn">提交</button>
+  <button id="submit" form-type="submit" class="btn" style="{{canSubmit==1 ? 'background:#F36778':''}}">提交</button>
 </view>
 </form>

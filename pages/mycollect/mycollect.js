@@ -9,20 +9,6 @@ Page({
   data: {
     currentIndex : -1,
     block : [
-      {
-        goods_id: "",
-        avatarUrl: "http://172.99.255.204/paogua/public/images/bp.png",
-        nickName: "吕炳旭",
-        subTime: "2018-08-30",
-        price: "￥9999",
-        title: "我是标题，支持多行显示",
-        imageUrl: [
-          "http://172.99.255.204/paogua/public/images/bp.png",
-          "http://172.99.255.204/paogua/public/images/bp.png",
-          "http://172.99.255.204/paogua/public/images/bp.png",
-        ],
-        school: "长安校区",
-      }
 
     ],
     reason: [

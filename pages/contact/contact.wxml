@@ -1,8 +1,24 @@
-<view class="row">
+<view class="row" style="margin-top:30rpx;">
   <view class="add">
-    <text class="icon-qq iconqq"></text>
+    <text class="icon-gongzhonghao icon"></text>
    </view>
   <view class="content">
-    <text>QQ群：XXXXXXXXX</text>
+    <text>官方公众号：工大梦之翼</text>
+  </view>
+</view>
+<view class="row">
+  <view class="add">
+    <text class="icon-qq icon"></text>
+   </view>
+  <view class="content">
+    <text>QQ群：390234644</text>
+  </view>
+</view>
+<view class="row">
+  <view class="add">
+    <text class="icon-weixin icon"></text>
+   </view>
+  <view class="content">
+    <text>经理微信：lph872740657</text>
   </view>
 </view>
