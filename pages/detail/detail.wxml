@@ -64,6 +64,7 @@
        <view bindtap="copyQQ" class="copy {{detail.qqNum=='无' || detail.qqNum=='绑定翱翔账号后方可查看' ? 'display':''}}"><text>复制</text></view>
     </view>
   </view>
+   <view style="height:120rpx;width:100%"></view>
 </view>
 <view class="footerFix">
   <view class="footer">
