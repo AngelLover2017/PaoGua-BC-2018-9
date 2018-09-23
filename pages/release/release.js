@@ -319,8 +319,8 @@ Page({
 
                                         } else if(res.data == '200'){
                                           wx.hideLoading()
-                                          wx.redirectTo({
-                                            url: '../home/home',
+                                          wx.navigateBack({
+                                            delta : 1
                                           })
                                         }
                                       },

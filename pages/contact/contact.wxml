@@ -1,4 +1,4 @@
-<view class="row" style="margin-top:30rpx;">
+<view class="row" style="margin-top:10rpx;">
   <view class="add">
     <text class="icon-gongzhonghao icon"></text>
    </view>
@@ -19,6 +19,6 @@
     <text class="icon-weixin icon"></text>
    </view>
   <view class="content">
-    <text>经理微信：lph872740657</text>
+    <text>产品经理：lph872740657</text>
   </view>
 </view>

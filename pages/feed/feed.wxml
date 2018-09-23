@@ -12,7 +12,7 @@
   </block>
 </view>
 <!-- select panel -->
-<view class="mask {{onOff ? '':'select-none'}}">
+<view class="mask {{onOff ? '':'select-none'}}" bindtap="cancel">
 </view>
 <scroll-view scroll-y="true" class="scroll {{curFilter == order[2] && onOff ? '':'select-none'}}" >
     <view class='container'>

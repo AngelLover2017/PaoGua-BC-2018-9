@@ -358,6 +358,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+   
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
     wx.getStorage({
       key: 'cookie',
@@ -379,8 +394,8 @@ Page({
               for (var i = 0; i < res.data.length; i++) {
                 res.data[i].category = util.parseCate(res.data[i].category, "", 0)
                 res.data[i].school = util.parseSch(res.data[i].school)
-                that.data.freshItems.push(res.data[i])
               }
+              that.data.freshItems = res.data
               that.setData({
                 freshItems: that.data.freshItems
               })
@@ -389,21 +404,6 @@ Page({
         })
       },
     })
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**

@@ -151,7 +151,7 @@ page{
 .bottom{
   position: fixed;
   bottom: 20rpx;
-  left: 40.31%;
+  left: 41%;
   height:130rpx;
   width: 130rpx;
   background: white;
@@ -160,7 +160,9 @@ page{
   color : #F36778;
   text-align: center;
 }
-
+.release{
+  margin-top:5rpx;
+}
 
 /* block */
 .top{

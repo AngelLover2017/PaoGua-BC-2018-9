@@ -455,7 +455,18 @@ Page({
     
 
   },
+  //mask
+  cancel: function () {
+    this.setData({
+      onOff: 0,
+      cur: -1,
+      curFilter: -1,
+      curNav: -1,
+      curNav2: -1
+    })
+  },
   // select panel
+
   select: function (e) {
     var index = e.target.dataset.id
     this.data.select[this.data.curFilter].filter = this.data.filter[this.data.curFilter].items[index]

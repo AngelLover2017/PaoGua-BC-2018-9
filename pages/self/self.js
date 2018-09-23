@@ -56,33 +56,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    wx.getStorage({
-      key: 'cookie',
-      success: function(res) {
-        if(res.data){
-          wx.request({
-            url: 'https://pg.npupaogua.cn/paogua/Home/Self/getSelf',
-            method: "POST",
-            header:{
-              "content-type": "application/x-www-form-urlencoded",
-              "cookie": app.globalData.cookie
-            },
-            data : {
-              Mstring : res.data
-            },
-            success : function(res){
-              console.log(res.data)
-              that.setData({
-                avatarTitle: res.data.nickName,
-                avatarPath: res.data.avatarUrl,
-                subTimes: res.data.subs,
-              })
-            }
-          })
-        }
-      },
-    })
+    
   },
   
   /**
@@ -96,7 +70,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this
+    wx.getStorage({
+      key: 'cookie',
+      success: function (res) {
+        if (res.data) {
+          wx.request({
+            url: 'https://pg.npupaogua.cn/paogua/Home/Self/getSelf',
+            method: "POST",
+            header: {
+              "content-type": "application/x-www-form-urlencoded",
+              "cookie": app.globalData.cookie
+            },
+            data: {
+              Mstring: res.data
+            },
+            success: function (res) {
+              console.log(res.data)
+              that.setData({
+                avatarTitle: res.data.nickName,
+                avatarPath: res.data.avatarUrl,
+                subTimes: res.data.subs,
+              })
+            }
+          })
+        }
+      },
+    })
   },
 
   /**

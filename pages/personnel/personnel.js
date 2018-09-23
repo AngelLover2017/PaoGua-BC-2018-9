@@ -33,32 +33,46 @@ Page({
   },
   unbind:function(){
     var that = this
-    wx.getStorage({
-      key: 'cookie',
-      success: function (res) {
-        wx.request({
-          url: 'https://pg.npupaogua.cn/paogua/Home/self/unbindNpu',
-          method: "POST",
-          header: {
-            "content-type": "application/x-www-form-urlencoded",
-            "cookie": app.globalData.cookie
-          },
-          data: {
-            Mstring: res.data,
-            npuId : that.data.npuId
-          },
-          success: function (res) {
-            if(res.data){
-              //删除成功
-              that.setData({
-                bind : 0
+    wx.showModal({
+      title: '提示',
+      content: '解绑翱翔后将不能发布闲置哦~',
+      showCancel: true,
+      success:function(res){
+        if(res.confirm){
+          wx.getStorage({
+            key: 'cookie',
+            success: function (res) {
+              wx.request({
+                url: 'https://pg.npupaogua.cn/paogua/Home/self/unbindNpu',
+                method: "POST",
+                header: {
+                  "content-type": "application/x-www-form-urlencoded",
+                  "cookie": app.globalData.cookie
+                },
+                data: {
+                  Mstring: res.data,
+                  npuId: that.data.npuId
+                },
+                success: function (res) {
+                  if (res.data) {
+                    //删除成功
+                    wx.showToast({
+                      title: '解绑成功',
+                    })
+                    that.setData({
+                      bind: 0
+                    })
+                    app.globalData.isNPU = "201"
+                  }
+                }
               })
-              app.globalData.isNPU = "201"
-            }
-          }
-        })
-      },
+            },
+          })
+        }
+
+      }
     })
+
   },
   //formsubmit
   formsubmit : function(e){
@@ -81,7 +95,15 @@ Page({
               qqNum : e.detail.value.qqNum
             },
             success: function(res){
-              console.log(res)
+              if(res.data == '200'){
+                wx.showToast({
+                  title: '保存成功',
+                })
+              }else{
+                wx.showToast({
+                  title: '保存失败',
+                })
+              }
             }
           })
         }
