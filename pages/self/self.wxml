@@ -63,6 +63,7 @@
       <text>联系我们</text>
     </view>
   </view>
+  <view style="height:100rpx;width:100%"></view>
 </view>
 <view class="tabBar">
 <!-- 货架 -->

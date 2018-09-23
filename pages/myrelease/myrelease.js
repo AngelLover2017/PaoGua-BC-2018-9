@@ -33,7 +33,7 @@ Page({
   toDetail: function (e) {
     var index = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: '../detail/detail?goods_id='+this.data.block[index].goods_id,
+      url: '../redetail/redetail?goods_id='+this.data.block[index].goods_id,
     })
   },
   deleteRelease:function(e){
@@ -84,9 +84,6 @@ Page({
         }
       })
     }
-
-
-
   },
   freshRelease:function(e){
     var that=this
