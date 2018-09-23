@@ -215,7 +215,7 @@ Page({
           //确认发布
           wx.showModal({
             title: '信息提示',
-            content: '闲置物品若15天内未被“擦亮”，买家可能会看不见。记得常去“我发布的”中去擦亮你的闲置哦～',
+            content: '闲置物品若15天内未被“擦亮”，买家可能会看不见。记得常去“我发布的”中擦亮你的闲置哦～',
             confirmText: "确认",
             showCancel: false,
             success: function (res) {

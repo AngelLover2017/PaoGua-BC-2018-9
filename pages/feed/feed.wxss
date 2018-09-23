@@ -221,6 +221,5 @@ page{
 .img-image{
   height: 200rpx;
   width: 200rpx;
-  border: 3rpx solid black;
   margin-right: 20rpx;
 }

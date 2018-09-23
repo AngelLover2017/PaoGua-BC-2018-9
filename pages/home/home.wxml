@@ -2,7 +2,7 @@
   <view class="fixed1">
     <view class="header"  bindtouchstart="handlStart" bindtouchmove="handlMove1" bindtouchend="handlEnd">
       <view class="topBar">
-        <text>抛  瓜</text>
+        <text></text>
       </view>
       <view class="" style="{{pullDown.imgTop}}" >
         <image class="img-top" src="{{homeImg}}" animation="{{animationImg}}"></image>
@@ -45,7 +45,7 @@
             </view>
           </view>
         </view>
-        <view class="cateTip">
+        <view class="cateTip" style="display:{{item.category=='求购'? '':'none'}}">
           <text>{{item.category}}</text>
         </view>
         <view class="price">
@@ -77,8 +77,8 @@
 
 <view class="tabBar">
 <!-- 货架 -->
-  <view class="colmun  {{curTab == 0 ? 'activeTab':'' }}">
-    <view class="barLogo" bindtap="switchShelf">
+  <view class="colmun  {{curTab == 0 ? 'activeTab':'' }}" bindtap="switchShelf">
+    <view class="barLogo" >
       <text class="iconfont icon-shangdian" style=""></text>
     </view>
     <view class="barText">
@@ -89,8 +89,8 @@
   <view class="colmun">
   </view>
   <!-- 我的 -->
-  <view class="colmun   {{curTab == 1 ? 'activeTab':'' }}">
-    <view class="barLogo" bindtap="switchSelf">
+  <view class="colmun   {{curTab == 1 ? 'activeTab':'' }}" bindtap="switchSelf">
+    <view class="barLogo" >
       <text class="iconfont icon-weibiaoti2fuzhi12"></text>
     </view>
     <view class="barText">

@@ -1,3 +1,6 @@
 {
-  
+  "navigationBarBackgroundColor": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "抛瓜",
+  "enablePullDownRefresh": false
 }

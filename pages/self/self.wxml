@@ -1,7 +1,7 @@
 <!--pages/self/self.wxml-->
 <view class="top">
   <view class="top-title">
-    <text>抛瓜</text>
+    <text></text>
   </view>
   <view class="top-avatar">
     <view class="avatar">
