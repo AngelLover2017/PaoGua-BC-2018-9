@@ -358,37 +358,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    var that = this
-    wx.getStorage({
-      key: 'cookie',
-      success: function(res) {
-        wx.request({
-          url: 'https://pg.npupaogua.cn/paogua/Home/Shelf/getFreshItems',
-          method: "POST",
-          header: {
-            "content-type": "application/x-www-form-urlencoded",
-            "cookie": app.globalData.cookie
-          },
-          data: {
-            Mstring: res.data,
-            limit : 1
-          },
-          success : function(res){
-            console.log(res.data)
-            if(Array.isArray(res.data)){
-              for(var i=0;i<res.data.length;i++){
-                res.data[i].category = util.parseCate(res.data[i].category,"",0)
-                res.data[i].school = util.parseSch(res.data[i].school)
-                that.data.freshItems.push(res.data[i])
-              }
-              that.setData({
-                freshItems : that.data.freshItems
-              })
-            }
-          }
-        })
-      },
-    })
+
 
   },
 
@@ -403,7 +373,37 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    var that = this
+    wx.getStorage({
+      key: 'cookie',
+      success: function (res) {
+        wx.request({
+          url: 'https://pg.npupaogua.cn/paogua/Home/Shelf/getFreshItems',
+          method: "POST",
+          header: {
+            "content-type": "application/x-www-form-urlencoded",
+            "cookie": app.globalData.cookie
+          },
+          data: {
+            Mstring: res.data,
+            limit: 1
+          },
+          success: function (res) {
+            console.log(res.data)
+            if (Array.isArray(res.data)) {
+              for (var i = 0; i < res.data.length; i++) {
+                res.data[i].category = util.parseCate(res.data[i].category, "", 0)
+                res.data[i].school = util.parseSch(res.data[i].school)
+                that.data.freshItems.push(res.data[i])
+              }
+              that.setData({
+                freshItems: that.data.freshItems
+              })
+            }
+          }
+        })
+      },
+    })
   },
 
   /**

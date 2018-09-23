@@ -133,18 +133,33 @@ Page({
     })
 
   },
-  /*
+
   editRelease:function(e){
     var that = this
     var index = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '../edit/edit?goods_id='+that.data.block[index].goods_id,
     })
-  }, */
+  }, 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    this.popup = this.selectComponent("#popup")
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
     wx.getStorage({
       key: 'cookie',
@@ -162,57 +177,42 @@ Page({
           },
           success: function (res) {
             if (res.data) {
-             that.data.block = res.data
-              
-              for(var i = 0;i<res.data.length;i++){
-               var a = that.data.block[i].category.split("-")
-               that.data.block[i].category = util.parseCate(a[0],a[1],1)
-               var subtime = new Date(res.data[i].subTime)
-               var curTime = new Date()
-               curTime.setTime(curTime.getTime())
-               var dateL = curTime.getDate() - subtime.getDate()
-               var hourL = curTime.getHours() - subtime.getHours()
-               if(hourL >= 23){
-                 dateL+=1
-               }
-               var tip = ""
-               if(dateL >= 0 && dateL<=1){
-                 tip = "我超新！不需要再擦亮啦！"
-               }else if(dateL>1 && dateL<=7){
-                 tip = "擦亮一下，可以被更多人看到！"
-               }else if(dateL>7 && dateL<=30){
-                 tip = "积灰太多其他人看不见啦，快擦亮！"
-               }else if(dateL>30 && dateL<=50){
-                 tip = "主人太久没擦亮我！我快消失啦！"
-               }else{
-                 tip = "其他人已经看不见我啦，快擦亮！"
-               }
-               that.data.block[i].tip = tip
-             }
-        
-             that.setData({
-               block : that.data.block
-             })
+              that.data.block = res.data
+
+              for (var i = 0; i < res.data.length; i++) {
+                var a = that.data.block[i].category.split("-")
+                that.data.block[i].category = util.parseCate(a[0], a[1], 1)
+                var subtime = new Date(res.data[i].subTime)
+                var curTime = new Date()
+                curTime.setTime(curTime.getTime())
+                var dateL = curTime.getDate() - subtime.getDate()
+                var hourL = curTime.getHours() - subtime.getHours()
+                if (hourL >= 23) {
+                  dateL += 1
+                }
+                var tip = ""
+                if (dateL >= 0 && dateL <= 1) {
+                  tip = "我超新！不需要再擦亮啦！"
+                } else if (dateL > 1 && dateL <= 7) {
+                  tip = "擦亮一下，可以被更多人看到！"
+                } else if (dateL > 7 && dateL <= 30) {
+                  tip = "积灰太多其他人看不见啦，快擦亮！"
+                } else if (dateL > 30 && dateL <= 50) {
+                  tip = "主人太久没擦亮我！我快消失啦！"
+                } else {
+                  tip = "其他人已经看不见我啦，快擦亮！"
+                }
+                that.data.block[i].tip = tip
+              }
+
+              that.setData({
+                block: that.data.block
+              })
             }
           }
         })
       },
     })
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    this.popup = this.selectComponent("#popup")
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
   },
 
   /**

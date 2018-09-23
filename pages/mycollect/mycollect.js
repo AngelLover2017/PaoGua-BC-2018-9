@@ -104,6 +104,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    this.popup = this.selectComponent("#popup");
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
     wx.getStorage({
       key: 'cookie',
@@ -120,39 +135,24 @@ Page({
           },
           success: function (res) {
             console.log(res.data)
-            if(Array.isArray(res.data)){
-              for(var i=0;i<res.data.length;i++){
+            if (Array.isArray(res.data)) {
+              for (var i = 0; i < res.data.length; i++) {
                 res.data[i].school = util.parseSch(res.data[i].school)
               }
               that.setData({
                 block: res.data
               })
-            }else if(res.data == false){
+            } else if (res.data == false) {
 
-            }else if(res.data == '400'){
-
-            }else if(res.data == '502'){
+            } else if (res.data == '400') {
+              
+            } else if (res.data == '502') {
 
             }
           }
         })
       },
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    this.popup = this.selectComponent("#popup");
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
   },
 
   /**
