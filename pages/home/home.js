@@ -65,75 +65,75 @@ Page({
     curTab : 0
   },
   //animation
-  handlStart:function(event){
-    console.log(event)
-    this.data.lastY = event.touches[0].pageY
-  },
-  handlMove1:function(event){
-    var length = this.data.lastY - event.touches[0].pageY
-    if(length > 5){
-        this.data.isUP = 1
-    }else if(length <-10){
-        this.data.isUP = 0
-    }
-    if (this.data.isUP) {
-      //animation
-      var animation = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation1 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation2 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation3 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      animation.opacity(0).height("0rpx").step()
-      animation1.top("-15rpx").step()
-      animation2.top("80rpx").step()
-      animation3.top("480rpx").step()
-      this.setData({
-        animationImg: animation.export(),
-        animationCate: animation1.export(),
-        animationFreshT: animation2.export(),
-        animationFresh: animation3.export()
-      })
-    } else {
-      //animation
-      var animation = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation1 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation2 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation3 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      animation.opacity(1).height("360rpx").step()
-      animation3.top("760rpx").step()
-      animation2.top("0rpx").step()
-      animation1.top("-120rpx").step()
-      this.setData({
-        animationImg: animation.export(),
-        animationCate: animation1.export(),
-        animationFreshT: animation2.export(),
-        animationFresh: animation3.export()
-      })
-    }
-  },
+  // handlStart:function(event){
+  //   console.log(event)
+  //   this.data.lastY = event.touches[0].pageY
+  // },
+  // handlMove1:function(event){
+  //   var length = this.data.lastY - event.touches[0].pageY
+  //   if(length > 5){
+  //       this.data.isUP = 1
+  //   }else if(length <-10){
+  //       this.data.isUP = 0
+  //   }
+  //   if (this.data.isUP) {
+  //     //animation
+  //     var animation = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation1 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation2 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation3 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     animation.opacity(0).height("0rpx").step()
+  //     animation1.top("-15rpx").step()
+  //     animation2.top("80rpx").step()
+  //     animation3.top("480rpx").step()
+  //     this.setData({
+  //       animationImg: animation.export(),
+  //       animationCate: animation1.export(),
+  //       animationFreshT: animation2.export(),
+  //       animationFresh: animation3.export()
+  //     })
+  //   } else {
+  //     //animation
+  //     var animation = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation1 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation2 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation3 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     animation.opacity(1).height("360rpx").step()
+  //     animation3.top("760rpx").step()
+  //     animation2.top("0rpx").step()
+  //     animation1.top("-120rpx").step()
+  //     this.setData({
+  //       animationImg: animation.export(),
+  //       animationCate: animation1.export(),
+  //       animationFreshT: animation2.export(),
+  //       animationFresh: animation3.export()
+  //     })
+  //   }
+  // },
   // handlMove2:function(event){
   //   var length = this.data.lastY - event.touches[0].pageY
   //   console.log(event)
@@ -141,35 +141,35 @@ Page({
   //     this.data.isUP = 1
   //   }
   // },
-  handlUpper:function(e){
-    //animation
-    var animation = wx.createAnimation({
-      duration: 500,
-      timingFunction: "ease"
-    })
-    var animation1 = wx.createAnimation({
-      duration: 500,
-      timingFunction: "ease"
-    })
-    var animation2 = wx.createAnimation({
-      duration: 500,
-      timingFunction: "ease"
-    })
-    var animation3 = wx.createAnimation({
-      duration: 500,
-      timingFunction: "ease"
-    })
-    animation.opacity(1).height("360rpx").step()
-    animation3.top("760rpx").step()
-    animation2.top("0rpx").step()
-    animation1.top("-120rpx").step()
-    this.setData({
-      animationImg: animation.export(),
-      animationCate: animation1.export(),
-      animationFreshT: animation2.export(),
-      animationFresh: animation3.export()
-    })
-  },
+  // handlUpper:function(e){
+  //   //animation
+  //   var animation = wx.createAnimation({
+  //     duration: 500,
+  //     timingFunction: "ease"
+  //   })
+  //   var animation1 = wx.createAnimation({
+  //     duration: 500,
+  //     timingFunction: "ease"
+  //   })
+  //   var animation2 = wx.createAnimation({
+  //     duration: 500,
+  //     timingFunction: "ease"
+  //   })
+  //   var animation3 = wx.createAnimation({
+  //     duration: 500,
+  //     timingFunction: "ease"
+  //   })
+  //   animation.opacity(1).height("360rpx").step()
+  //   animation3.top("760rpx").step()
+  //   animation2.top("0rpx").step()
+  //   animation1.top("-120rpx").step()
+  //   this.setData({
+  //     animationImg: animation.export(),
+  //     animationCate: animation1.export(),
+  //     animationFreshT: animation2.export(),
+  //     animationFresh: animation3.export()
+  //   })
+  // },
   handlLower:function(e){
     var length = this.data.freshItems.length
     if (length % 10 == 0) {
@@ -221,9 +221,6 @@ Page({
         icon : 'none'
       })
     }
-
-
-
   },
   handlScroll:function(e){
     if(e.detail.scrollTop-this.data.lastScrollY > 1){
@@ -257,67 +254,67 @@ Page({
     }
     this.data.lastScrollY = e.detail.scrollTop
   },
-  handlEnd:function(event){
-    console.log(event)
-    var isUP = this.data.isUP
-    if(isUP){
-      //animation
-      var animation = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation1 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation2 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation3 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      animation.opacity(0).height("0rpx").step()
-      animation1.top("-15rpx").step()
-      animation2.top("80rpx").step()
-      animation3.top("480rpx").step()
-      this.setData({
-        animationImg: animation.export(),
-        animationCate: animation1.export(),
-        animationFreshT: animation2.export(),
-        animationFresh: animation3.export()
-      })
-    }else{
-      //animation
-      var animation = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation1 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation2 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      var animation3 = wx.createAnimation({
-        duration: 500,
-        timingFunction: "ease"
-      })
-      animation.opacity(1).height("360rpx").step()
-      animation3.top("760rpx").step()
-      animation2.top("0rpx").step()
-      animation1.top("-120rpx").step()
-      this.setData({
-        animationImg: animation.export(),
-        animationCate: animation1.export(),
-        animationFreshT: animation2.export(),
-        animationFresh: animation3.export()
-      })
-    }
-  },
+  // handlEnd:function(event){
+  //   console.log(event)
+  //   var isUP = this.data.isUP
+  //   if(isUP){
+  //     //animation
+  //     var animation = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation1 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation2 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation3 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     animation.opacity(0).height("0rpx").step()
+  //     animation1.top("-15rpx").step()
+  //     animation2.top("80rpx").step()
+  //     animation3.top("480rpx").step()
+  //     this.setData({
+  //       animationImg: animation.export(),
+  //       animationCate: animation1.export(),
+  //       animationFreshT: animation2.export(),
+  //       animationFresh: animation3.export()
+  //     })
+  //   }else{
+  //     //animation
+  //     var animation = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation1 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation2 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     var animation3 = wx.createAnimation({
+  //       duration: 500,
+  //       timingFunction: "ease"
+  //     })
+  //     animation.opacity(1).height("360rpx").step()
+  //     animation3.top("760rpx").step()
+  //     animation2.top("0rpx").step()
+  //     animation1.top("-120rpx").step()
+  //     this.setData({
+  //       animationImg: animation.export(),
+  //       animationCate: animation1.export(),
+  //       animationFreshT: animation2.export(),
+  //       animationFresh: animation3.export()
+  //     })
+  //   }
+  // },
   //tabBar
   switchShelf: function () {
     wx.redirectTo({

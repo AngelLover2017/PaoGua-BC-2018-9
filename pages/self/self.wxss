@@ -38,18 +38,18 @@ page{
    background : #F3F3F7;
 }
 .top{
-  height:394rpx;
+  height:354rpx;
   background: linear-gradient(#F47F59,#F36778);
 }
 .top-title{
   padding-top: 15rpx;
   text-align: center;
   font-size: 40rpx;
-  height:78rpx;
+  height:0rpx;
   color : white;
 }
 .top-avatar{
-  margin-top : 40rpx;
+  margin-top : 35rpx;
   height:196rpx;
   width : auto;
   margin-left: 41.4%;
@@ -146,7 +146,8 @@ image{
 .bottom{
   position: fixed;
   bottom: 20rpx;
-  left: 40.31%;
+  left: 50%;
+  transform:translateX(-50%);
   height:130rpx;
   width: 130rpx;
   background: white;
@@ -155,11 +156,7 @@ image{
   color : #F36778;
   text-align: center;
 }
-/* .release{
-  height : 110rpx;
-  width: 110rpx;
-  margin: 10rpx 10rpx 10rpx 10rpx;
-  background: black;
-  border-radius: 100%;
- 
-} */
+.release{
+  margin: 0 auto;
+  margin-top:5rpx;
+}

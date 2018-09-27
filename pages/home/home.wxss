@@ -151,7 +151,8 @@ page{
 .bottom{
   position: fixed;
   bottom: 20rpx;
-  left: 41%;
+  left: 50%;
+  transform:translateX(-50%);
   height:130rpx;
   width: 130rpx;
   background: white;
@@ -161,6 +162,7 @@ page{
   text-align: center;
 }
 .release{
+  margin: 0 auto;
   margin-top:5rpx;
 }
 
